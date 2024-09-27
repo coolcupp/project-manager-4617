@@ -20,7 +20,7 @@ public class User {
 
 
     public User() {
-        this.name = name;
+
     }
 
     // getters and setters
