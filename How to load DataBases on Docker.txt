@@ -1,2 +1,8 @@
 docker-compose up -d
 docker exec -i postgres_db psql -U postgres -d project_manager < prManager.sql
+
+\с db_name - коннектнуться к БД
+\dt - список таблиц в БД 
+
+docker exec -it container_name psql -U user_name - использовать четотам
+
