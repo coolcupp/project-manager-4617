@@ -1,4 +1,4 @@
-package com.project_manager.project_manager.Entities;
+package com.project_manager.project_manager.entities;
 
 import jakarta.persistence.*;
 
