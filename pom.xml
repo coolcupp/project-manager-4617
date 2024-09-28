@@ -65,6 +65,12 @@
 			<version>1.4.3</version>
 		</dependency>
 
+		<!-- Spring Boot Starter Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 		<!-- Ломбок для упрощения кода моделей -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
