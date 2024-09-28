@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -19,7 +20,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public Task getTaskById(@PathVariable Long id) {
+    public Task getTaskById(@PathVariable UUID id) {
         return taskService.getTaskById(id);
     }
 
@@ -29,12 +30,12 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public Task updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
+    public Task updateTask(@PathVariable UUID id, @RequestBody Task taskDetails) {
         return taskService.updateTask(id, taskDetails);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTask(@PathVariable Long id) {
+    public void deleteTask(@PathVariable UUID id) {
         taskService.deleteTask(id);
     }
 
@@ -44,7 +45,7 @@ public class TaskController {
     }
 
     @GetMapping("/project/{projectId}")
-    public List<Task> getTasksByProjectId(@PathVariable Long projectId) {
+    public List<Task> getTasksByProjectId(@PathVariable UUID projectId) {
         return taskService.getTasksByProjectId(projectId);
     }
 }

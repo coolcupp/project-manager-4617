@@ -6,24 +6,15 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "projects")
-public class Project {
+@Table(name = "roles")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String name;
-    private String description;
 
-    @ManyToMany
-    @JoinTable(
-            name = "project_users",
-            joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
+    @ManyToMany(mappedBy = "roles")
     private List<User> users;
-
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-    private List<Task> tasks;
 
     // Getters and Setters
     public UUID getId() {
@@ -42,27 +33,11 @@ public class Project {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public List<User> getUsers() {
         return users;
     }
 
     public void setUsers(List<User> users) {
         this.users = users;
-    }
-
-    public List<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
     }
 }

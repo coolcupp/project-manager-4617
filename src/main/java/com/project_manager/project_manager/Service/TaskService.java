@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TaskService {
@@ -16,7 +17,7 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task getTaskById(Long id) {
+    public Task getTaskById(UUID id) {
         return taskRepository.findById(id).orElse(null);
     }
 
@@ -24,7 +25,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Task updateTask(Long id, Task taskDetails) {
+    public Task updateTask(UUID id, Task taskDetails) {
         Task task = taskRepository.findById(id).orElse(null);
         if (task != null) {
             task.setTitle(taskDetails.getTitle());
@@ -35,7 +36,7 @@ public class TaskService {
         return null;
     }
 
-    public void deleteTask(Long id) {
+    public void deleteTask(UUID id) {
         taskRepository.deleteById(id);
     }
 
@@ -43,7 +44,7 @@ public class TaskService {
         return taskRepository.findByStatus(status);
     }
 
-    public List<Task> getTasksByProjectId(Long projectId) {
+    public List<Task> getTasksByProjectId(UUID projectId) {
         return taskRepository.findByProjectId(projectId);
     }
 }
