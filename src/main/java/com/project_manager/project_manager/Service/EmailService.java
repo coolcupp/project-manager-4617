@@ -1,5 +1,6 @@
 package com.project_manager.project_manager.Service;
 
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -8,7 +9,6 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 
 @Service
 public class EmailService {
@@ -18,7 +18,7 @@ public class EmailService {
     @Autowired
     private TemplateEngine templateEngine;
 
-    public void sendNotificationEmail(String to, String subject, String templateName, Context context) throws MessagingException {
+    public void sendNotificationEmail(String to, String subject, String templateName, Context context) throws MessagingException, jakarta.mail.MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
