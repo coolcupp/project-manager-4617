@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Notification</title>
 </head>
 <body>
-
+<h1>Notification</h1>
+<p>Dear <span th:text="${name}"></span>,</p>
+<p>This is a notification about your task: <span th:text="${taskTitle}"></span>.</p>
+<p>Status: <span th:text="${status}"></span></p>
+<p>Thank you!</p>
 </body>
 </html>

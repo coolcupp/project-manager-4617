@@ -1,35 +1,21 @@
 package com.project_manager.project_manager.Controllers;
-import com.project_manager.project_manager.Service.UserService;
+
 import com.project_manager.project_manager.entities.User;
+import com.project_manager.project_manager.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("/api/users")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
-    @GetMapping
-    public User getUserById(@PathVariable Long id) {
-        return userService.findUserById(id);
-    }
-
-
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        userService.saveUser(user);
-        return user;
-    }
-
-    @DeleteMapping("{id}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+    @PostMapping("/register")
+    public User registerUser(@RequestBody User user) {
+        return userService.createUser(user);
     }
 }
